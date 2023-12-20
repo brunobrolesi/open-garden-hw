@@ -11,4 +11,5 @@
 void app_main(void)
 {
     xTaskCreate(read_water_level, "read_water_level", configMINIMAL_STACK_SIZE * 3, NULL, 5, NULL);
+    xTaskCreate(read_temperature, "read_temperature", configMINIMAL_STACK_SIZE * 3, NULL, 5, NULL);
 }
