@@ -1,0 +1,14 @@
+name: tds
+description: lib to calculate tds value from mV value acquired from a tds sensor.
+version: 1.0.0
+groups:
+  - misc
+code_owners: brunobrolesi
+depends:
+thread_safe: n/a
+targets:
+  - esp32
+license: MIT
+copyrights:
+  - name: brunobrolesi 
+    year: 2023
