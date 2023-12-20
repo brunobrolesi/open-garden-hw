@@ -26,12 +26,14 @@ void read_temperature(void *pvParameters)
     if (res != ESP_OK)
     {
       ESP_LOGE(TAG, "Sensors scan error %d (%s)", res, esp_err_to_name(res));
+      vTaskDelay(pdMS_TO_TICKS(1000));
       continue;
     }
 
     if (!sensor_count)
     {
       ESP_LOGW(TAG, "No sensors detected!");
+      vTaskDelay(pdMS_TO_TICKS(1000));
       continue;
     }
 
@@ -39,7 +41,6 @@ void read_temperature(void *pvParameters)
     sensor_found = true;
   }
 
-  // Do a number of temperature samples, and print the results.
   while (true)
   {
     res = ds18x20_measure_and_read(SENSOR_GPIO, addrs[0], &temperature);
